@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Installing requirements 
+        run: sudo apt-get install -y git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison libncurses-dev autoconf dkms libudev-dev libpci-dev libiberty-dev u-boot-tools lzop
+      - name: Clone repo
+        run: git clone --depth=1 https://github.com/armbian/build
+      - name: Start build
+        run: |
+          cd build
+          ./compile.sh BOARD=rock64 BRANCH=current RELEASE=focal KERNEL_CONFIGURE=no BUILD_DESKTOP=no BUILD_MINIMAL=no KERNEL_ONLY=no
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          path: build/output 
