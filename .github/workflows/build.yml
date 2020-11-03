@@ -17,7 +17,7 @@ jobs:
       - name: Start build
         run: |
           cd build
-          ./compile.sh BOARD=rock64 BRANCH=current RELEASE=focal KERNEL_CONFIGURE=no BUILD_DESKTOP=no BUILD_MINIMAL=no KERNEL_ONLY=no
+          ./compile.sh BOARD=rock64 BRANCH=dev RELEASE=focal KERNEL_CONFIGURE=no BUILD_DESKTOP=no BUILD_MINIMAL=no KERNEL_ONLY=no USE_CCACHE=yes
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
         with:
