@@ -15,7 +15,7 @@ before_script:
 - git clone --depth=1 --single-branch -b master https://github.com/SuzukiHonoka/build /opt/build
 script:
 - cd /opt/build
-  ./compile.sh BOARD=rock64 BRANCH=current RELEASE=focal KERNEL_CONFIGURE=no BUILD_DESKTOP=no BUILD_MINIMAL=no KERNEL_ONLY=no USE_CCACHE=yes
+- ./compile.sh BOARD=rock64 BRANCH=current RELEASE=focal KERNEL_CONFIGURE=no BUILD_DESKTOP=no BUILD_MINIMAL=no KERNEL_ONLY=no USE_CCACHE=yes
 after_script:
 - ls /opt/build/output
 env:
