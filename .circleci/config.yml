@@ -10,7 +10,7 @@ jobs:
           name: "Installing requirements"
           command: |
             sudo apt update
-            sudo apt-get install --allow -y git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison libncurses-dev autoconf dkms libudev-dev libpci-dev libiberty-dev u-boot-tools lzop apt-cacher-ng
+            sudo apt-get install -y git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison libncurses-dev autoconf dkms libudev-dev libpci-dev libiberty-dev u-boot-tools lzop apt-cacher-ng
       - run:
           name: "Clone repo"
           command: git clone --depth=1 --single-branch -b master https://github.com/SuzukiHonoka/build
