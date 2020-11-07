@@ -13,7 +13,7 @@ jobs:
       - name: Installing requirements 
         run: sudo apt-get install -y git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison libncurses-dev autoconf dkms libudev-dev libpci-dev libiberty-dev u-boot-tools lzop
       - name: Clone repo
-        run: git clone --depth=1 https://github.com/armbian/build
+        run: git clone --depth=1 --single-branch -b mastr https://github.com/SuzukiHonoka/build
       - name: Start build
         run: |
           cd build
