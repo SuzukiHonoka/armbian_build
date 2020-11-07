@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: FIX APT SOURCE
-        run: sed -i /etc/apt/source.list "s/azure.archive.ubuntu.com/www.archive.ubuntu.com/g"
+        run: sed -i "s/azure.archive.ubuntu.com/www.archive.ubuntu.com/g" /etc/apt/source.list
       - name: Installing requirements 
         run: sudo apt-get install -y git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison libncurses-dev autoconf dkms libudev-dev libpci-dev libiberty-dev u-boot-tools lzop
       - name: Clone repo
