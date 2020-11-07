@@ -17,7 +17,7 @@ jobs:
           sudo apt update
           sudo apt-get install -y git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison libncurses-dev autoconf dkms libudev-dev libpci-dev libiberty-dev u-boot-tools lzop
       - name: Clone repo
-        run: git clone --depth=1 --single-branch -b mastr https://github.com/SuzukiHonoka/build
+        run: git clone --depth=1 --single-branch -b master https://github.com/SuzukiHonoka/build
       - name: Start build
         run: |
           cd build
