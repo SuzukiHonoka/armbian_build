@@ -1,0 +1,23 @@
+os: linux
+dist: focal
+arch: arm64-graviton2
+virt: lxd
+group: edge
+language: c
+compiler:
+- gcc
+addons:
+  apt:
+    packages:
+      - git
+before_script:
+- mkdir -p /opt
+- git clone --depth=1 --single-branch -b master https://github.com/SuzukiHonoka/build /opt/build
+script:
+- cd /opt/build
+  ./compile.sh BOARD=rock64 BRANCH=current RELEASE=focal KERNEL_CONFIGURE=no BUILD_DESKTOP=no BUILD_MINIMAL=no KERNEL_ONLY=no USE_CCACHE=yes
+after_script:
+- ls /opt/build/output
+env:
+  jobs:
+  - build_variant=first_build
