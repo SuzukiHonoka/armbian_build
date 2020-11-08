@@ -5,9 +5,13 @@ on:
     branches: [ main ]
     paths:
       - '.github/workflows/build.yml'
+  watch:
+    types: [started]
+    
 jobs:
   build:
     runs-on: ubuntu-20.04
+    if: github.event.repository.owner.id == github.event.sender.id
     steps:
       - name: FIX APT SOURCE
         run: sudo sed -i "s/azure.archive.ubuntu.com/www.archive.ubuntu.com/g" /etc/apt/sources.list
